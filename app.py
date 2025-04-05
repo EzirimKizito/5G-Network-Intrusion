@@ -16,8 +16,8 @@ st.set_page_config(layout="wide", page_title="5G NIDD Live Detection")
 # --- Configuration & Constants ---
 # !!! IMPORTANT: UPDATE THESE PATHS !!!
 # Set these to the correct location of your saved model and scaler files
-MODEL_PATH = "/content/nidd_model.h5"  # Example: Or /kaggle/working/nidd_model.h5
-SCALER_PATH = "/content/scaler2.joblib" # Example: Or /kaggle/working/scaler2.joblib
+MODEL_PATH = "nidd_model.h5"
+SCALER_PATH = "scaler2.joblib"
 
 # --- Sidebar ---
 st.sidebar.title("⚙️ Configuration & Info")

@@ -526,7 +526,7 @@ with output_placeholder:
 
                             # Add final status message
                             if prediction_label_str == 'Malicious': st.error("🚨 Potential Threat Detected!")
-                            elif prediction_label_str == 'Benign': st.success("✅ Flow Appears Benign.")
+                            elif prediction_label_str == 'Benign': st.success("✅ Flow Appears Normal.")
 
                     except Exception as e:
                         st.error(f"Prediction failed: {e}")

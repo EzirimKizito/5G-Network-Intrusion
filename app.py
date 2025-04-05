@@ -522,7 +522,7 @@ with output_placeholder:
                                     st.metric("Predicted Class", prediction_label_str, "Low Risk", delta_color="normal")
                                 else: st.metric("Predicted Class", "Unknown") # Fallback
                             with conf_col:
-                                Perc_confidence_in_prediction = (confidence_in_prediction*100)
+                                perc_confidence_in_prediction = (confidence_in_prediction*100)
                                 st.metric("Prediction Confidence", f"{perc_confidence_in_prediction:.4f}", help=conf_help)
                                 st.progress(float(confidence_in_prediction))
 

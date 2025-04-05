@@ -523,7 +523,7 @@ with output_placeholder:
                                 else: st.metric("Predicted Class", "Unknown") # Fallback
                             with conf_col:
                                 perc_confidence_in_prediction = (confidence_in_prediction*100)
-                                st.metric("Prediction Confidence", f"{perc_confidence_in_prediction:.4f}", help=conf_help)
+                                st.metric("Prediction Confidence", f"{perc_confidence_in_prediction:.2f}", help=conf_help)
                                 st.progress(float(confidence_in_prediction))
 
                             # Add final status message

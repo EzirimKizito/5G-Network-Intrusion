@@ -506,11 +506,11 @@ with output_placeholder:
                             prediction_label_str = reverse_label_mapping.get(prediction_label_num, "Unknown")
 
                             if prediction_label_num == 1: # Malicious
-                                confidence_in_prediction = (prediction_proba*100)
+                                confidence_in_prediction = prediction_proba
                                 conf_help = "Certainty score for 'Malicious' prediction."
                             else: # Benign
                                 confidence_in_prediction = 1.0 - prediction_proba
-                                confidence_in_prediction = (confidence_in_prediction*100)
+                                confidence_in_prediction = confidence_in_prediction
                                 conf_help = "Certainty score for 'Benign' prediction."
 
                             # --- Display Results ---
@@ -522,7 +522,8 @@ with output_placeholder:
                                     st.metric("Predicted Class", prediction_label_str, "Low Risk", delta_color="normal")
                                 else: st.metric("Predicted Class", "Unknown") # Fallback
                             with conf_col:
-                                st.metric("Prediction Confidence", f"{confidence_in_prediction:.4f}*100", help=conf_help)
+                                Perc_confidence_in_prediction = (confidence_in_prediction*100)
+                                st.metric("Prediction Confidence", f"{perc_confidence_in_prediction:.4f}", help=conf_help)
                                 st.progress(float(confidence_in_prediction))
 
                             # Add final status message

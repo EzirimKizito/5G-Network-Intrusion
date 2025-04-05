@@ -1,0 +1,20 @@
+# requirements.txt for 5G NIDD Streamlit App
+
+# --- Core Framework ---
+streamlit>=1.28.0,<2.0.0
+
+# --- Data Handling ---
+pandas>=1.5.0,<3.0.0
+numpy>=1.23.0,<1.27.0
+
+# --- Machine Learning & Model Loading ---
+# IMPORTANT: Use the same major.minor version as your training environment!
+# Example: If trained with TF 2.15.1, use tensorflow>=2.15.0,<2.16.0
+tensorflow>=2.15.0,<2.17.0
+
+# Needed for loading the scaler and potentially other ML tasks
+scikit-learn>=1.2.0,<1.5.0
+
+# Explicitly include joblib for loading the scaler file
+joblib>=1.2.0
+

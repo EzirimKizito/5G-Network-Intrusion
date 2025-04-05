@@ -19,13 +19,58 @@ st.set_page_config(layout="wide", page_title="5G NIDD Live Detection")
 MODEL_PATH = "nidd_model.h5"
 SCALER_PATH = "scaler2.joblib"
 
-# --- Sidebar ---
-st.sidebar.title("⚙️ Configuration & Info")
-st.sidebar.info(f"Model: {os.path.basename(MODEL_PATH)}")
-st.sidebar.info(f"Scaler: {os.path.basename(SCALER_PATH)}")
-# Toggle for debugging information
-debug_mode = st.sidebar.checkbox("Show Debug Information", value=False) # Default to False
+# # --- Sidebar ---
+# st.sidebar.title("⚙️ Configuration & Info")
+# st.sidebar.info(f"Model: {os.path.basename(MODEL_PATH)}")
+# st.sidebar.info(f"Scaler: {os.path.basename(SCALER_PATH)}")
+# # Toggle for debugging information
+# debug_mode = st.sidebar.checkbox("Show Debug Information", value=False) # Default to False
 
+# --- Sidebar ---
+st.sidebar.title("About & Help")
+
+# Expander for App Information (collapsed by default)
+with st.sidebar.expander("ℹ️ About this App", expanded=False):
+    st.markdown(
+        """
+        **Purpose:**
+        This application uses a trained machine learning model to predict
+        whether a given 5G network flow exhibits characteristics of
+        Non-IP Data Delivery (NIDD) anomalies, potentially indicating
+        malicious activity.
+        """
+    )
+    st.divider() # Visual separator
+    st.subheader("Instructions:")
+    st.markdown(
+        """
+        1.  **Enter Flow Details:** Fill in the specific values for the network flow
+            using the input fields on the main page. Default values are provided
+            for a known benign instance.
+        2.  **(Optional) Paste Data:** You can paste pre-formatted data
+            (`Feature Name: Value`) into the 'Paste Instance Data' section and
+            click 'Fill Inputs from Pasted Text'. *Note: Encoded values are expected for Proto, Cause, State.*
+        3.  **Predict:** Click the **'Predict Flow Status'** button located below
+            all the input fields.
+        4.  **View Result:** The prediction (Benign/Malicious), risk level, and
+            confidence score will appear below the button.
+        """
+    )
+    st.divider() # Visual separator
+    st.subheader("Project Details:")
+    st.markdown(
+        """
+        *   **Developer:** Ajayi Ayooluwa Cornelius
+        *   **Matric No:** 19/52HP009
+        *   **Context:** Final Year Project
+        """
+    )
+
+# Toggle for debugging information (kept outside the expander)
+st.sidebar.divider() # Separator before debug toggle
+debug_mode = st.sidebar.checkbox("Show Debug Information", value=False)
+if debug_mode:
+    st.sidebar.warning("Debug mode is ON. Extra processing details will be shown.")
 
 # --- Load Model and Preprocessing Objects (Cached) ---
 @st.cache_resource

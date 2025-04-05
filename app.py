@@ -506,10 +506,11 @@ with output_placeholder:
                             prediction_label_str = reverse_label_mapping.get(prediction_label_num, "Unknown")
 
                             if prediction_label_num == 1: # Malicious
-                                confidence_in_prediction = prediction_proba
+                                confidence_in_prediction = (prediction_proba*100)
                                 conf_help = "Certainty score for 'Malicious' prediction."
                             else: # Benign
                                 confidence_in_prediction = 1.0 - prediction_proba
+                                confidence_in_prediction = (confidence_in_prediction*100)
                                 conf_help = "Certainty score for 'Benign' prediction."
 
                             # --- Display Results ---

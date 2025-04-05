@@ -361,7 +361,7 @@ with st.expander("📋 Paste Instance Data (Optional)"):
                 if updated_count > 0: st.success(f"Applied {updated_count} valid inputs.")
                 else: st.warning("No valid inputs found in pasted text.")
                 # Force rerun to update widgets immediately after paste
-                st.experimental_rerun()
+                st.rerun()
 
             if error_messages:
                 st.warning("Parsing issues found:")
